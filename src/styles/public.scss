@@ -1,0 +1,31 @@
+//生成边距默认样式
+$properties: (mg, margin)(mt, margin-top)(mb, margin-bottom)(ml, margin-left)(mr, margin-right) (pd, padding)(pt, padding-top)(pb, padding-bottom)(pl, padding-left)(pr, padding-right) !default;
+$size: 20;
+@while $size>0 {
+    @each $prop in $properties {
+        $class: nth($prop, 1);
+        $style: nth($prop, 2);
+        .#{$class}-#{$size} {
+            #{$style}: #{$size}px;
+        }
+    }
+    $size: $size - 5;
+}
+
+
+%el-menu-icon {
+    i.fa {
+        display: inline-block;
+        width: 15px;
+        text-align: center;
+        margin-right: 5px;
+    }
+}
+
+%full {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
